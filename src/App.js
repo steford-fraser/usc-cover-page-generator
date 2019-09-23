@@ -84,45 +84,103 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.renderCoverPage}>
-          <input
-            type="text"
-            value={this.state.assig_name}
-            onChange={event => this.setState({ assig_name: event.target.value })}
-            placeholder="Assignment Name"
-            required
-          />
-          <input
-            type="text"
-            value={this.state.course_name}
-            onChange={event => this.setState({ course_name: event.target.value })}
-            placeholder="Course Name"
-            required
-          />
-          <input
-            type="text"
-            value={this.state.instruct_name}
-            onChange={event => this.setState({ instruct_name: event.target.value })}
-            placeholder="Instructor Name"
-            required
-          />
-          <input
-            type="text"
-            value={this.state.student_name}
-            onChange={event => this.setState({ student_name: event.target.value })}
-            placeholder="Student Name"
-            required
-          />
-          <input
-            type='date'
-            value={this.state.date}
-            onChange={event => this.setState({ date: event.target.value })}
-            placeholder="Date"
-            required
-          />
-          <button type="submit">Generate Cover Page</button>
-        </form>
+      <div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between'}}>
+        <nav style={{backgroundColor: '#477D2F'}}>
+          <div className="nav-wrapper">
+            <a href="#" className="brand-logo">USC Cover Page Generator</a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><a href="https://github.com/steford-fraser/usc-cover-page-generator">Contribute on Github</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col s12">
+              <form onSubmit={this.renderCoverPage}>
+                <div className="input-field">
+                  <input
+                    className="validate"
+                    type="text"
+                    value={this.state.assig_name}
+                    onChange={event => this.setState({ assig_name: event.target.value })}
+                    placeholder="Assignment Name"
+                    required
+                  />
+                  <label htmlFor="first_name">Assignment Name</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    type="text"
+                    value={this.state.course_name}
+                    onChange={event => this.setState({ course_name: event.target.value })}
+                    placeholder="Course Name"
+                    required
+                  />
+                  <label htmlFor="first_name">Course Name</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    type="text"
+                    value={this.state.instruct_name}
+                    onChange={event => this.setState({ instruct_name: event.target.value })}
+                    placeholder="Instructor Name"
+                    required
+                  />
+                  <label htmlFor="first_name">Instructor Name</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    type="text"
+                    value={this.state.student_name}
+                    onChange={event => this.setState({ student_name: event.target.value })}
+                    placeholder="Student Name"
+                    required
+                  />
+                  <label htmlFor="first_name">Student Name</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    type='date'
+                    value={this.state.date}
+                    onChange={event => this.setState({ date: event.target.value })}
+                    placeholder="Date"
+                    required
+                  />
+                  <label htmlFor="first_name">Date</label>
+                </div>
+                <button className="btn waves-effect waves-light" type="submit" name="action">Generate Cover Page
+                <i className="material-icons right">send</i>
+                </button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <footer style={{backgroundColor: '#477D2F'}} className="page-footer">
+          <div className="container">
+            <div className="row">
+              <div className="col l6 s12">
+                <h5 className="white-text">Incase you were wondering</h5>
+                <p className="grey-text text-lighten-4">These are the packages I used to create this.</p>
+              </div>
+              <div className="col l4 offset-l2 s12">
+                <h5 className="white-text">Links</h5>
+                <ul>
+                  <li><a className="grey-text text-lighten-3" href="https://github.com/MrRio/jsPDF">jsPDF</a></li>
+                  <li><a className="grey-text text-lighten-3" href="https://reactjs.org/">React Js</a></li>
+                  <li><a className="grey-text text-lighten-3" href="https://jquery.com/">jQuery</a></li>
+                  <li><a className="grey-text text-lighten-3" href="https://momentjs.com/">Moment.js</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="footer-copyright">
+            <div className="container">
+              By Steford Fraser @ 2015         
+            </div>
+          </div>
+        </footer>
+
       </div>
     );
   }
