@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import $ from "jquery";
 import jsPDF from 'jspdf';
 import moment from 'moment';
+import 'materialize-css/dist/css/materialize.css'
+import M from "materialize-css";
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +18,12 @@ class App extends Component {
 
   }
   componentDidMount() {
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, {});
+    });
+
     this.doc = new jsPDF({
       orientation: 'portrait',
       unit: "mm",
@@ -53,7 +61,9 @@ class App extends Component {
 
     }
 
+
   }
+
   renderCoverPage = (event) => {
     event.preventDefault();
     this.doc.setFontSize(12);//Font Size: 12
@@ -87,16 +97,28 @@ class App extends Component {
 
   }
   render() {
+
     return (
-      <div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between'}}>
-        <nav style={{backgroundColor: '#477D2F'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between' }}>
+        <nav style={{ backgroundColor: '#477D2F' }}>
           <div className="nav-wrapper">
             <a href="#" className="brand-logo">USC Cover Page Generator</a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down ">
               <li><a href="https://github.com/steford-fraser/usc-cover-page-generator">Contribute on Github</a></li>
             </ul>
+
           </div>
         </nav>
+
+        <ul className="sidenav" id="mobile-demo">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">Javascript</a></li>
+          <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+
+
         <div className="container">
           <div className="row">
             <div className="col s12">
@@ -160,7 +182,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <footer style={{backgroundColor: '#477D2F'}} className="page-footer">
+        <footer style={{ backgroundColor: '#477D2F' }} className="page-footer">
           <div className="container">
             <div className="row">
               <div className="col l6 s12">
@@ -180,7 +202,7 @@ class App extends Component {
           </div>
           <div className="footer-copyright">
             <div className="container">
-              By Steford Fraser @ 2015         
+              By Steford Fraser @ 2015
             </div>
           </div>
         </footer>
