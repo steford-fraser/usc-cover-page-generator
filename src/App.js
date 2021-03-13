@@ -81,6 +81,10 @@ class App extends Component {
     //End
     this.doc.writeText(0, 250, "Approval…….............                     ", { align: 'right' });
     this.doc.save('cover-page.pdf')
+
+    //Reload page to clear written text
+    window.location.reload();
+
   }
   render() {
     return (
